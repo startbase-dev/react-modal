@@ -10,7 +10,6 @@ export default function Modal({ name, children, ...rest }) {
   return (
     <ReactModal
       name={name}
-      ariaHideApp={false}
       onRequestClose={() => closeModal(name)}
       shouldCloseOnOverlayClick={true}
       {...rest}
