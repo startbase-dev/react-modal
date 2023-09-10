@@ -82,7 +82,6 @@ function Modal({ name, children, ...rest }) {
     import_react_modal.default,
     {
       name,
-      ariaHideApp: false,
       onRequestClose: () => closeModal(name),
       shouldCloseOnOverlayClick: true,
       ...rest

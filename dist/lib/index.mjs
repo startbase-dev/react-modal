@@ -44,7 +44,6 @@ function Modal({ name, children, ...rest }) {
     ReactModal,
     {
       name,
-      ariaHideApp: false,
       onRequestClose: () => closeModal(name),
       shouldCloseOnOverlayClick: true,
       ...rest
