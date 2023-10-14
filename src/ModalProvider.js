@@ -1,3 +1,4 @@
+import React from 'react';
 import { Provider } from './ModalContext';
 import useCreateContext from './useCreateContext';
 

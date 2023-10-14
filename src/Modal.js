@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 
 import ReactModal from 'react-modal';
 
@@ -11,7 +11,7 @@ export default function Modal({ name, children, ...rest }) {
     <ReactModal
       name={name}
       onRequestClose={() => closeModal(name)}
-      shouldCloseOnOverlayClick={true}
+      shouldCloseOnOverlayClick
       {...rest}
     >
       {children}

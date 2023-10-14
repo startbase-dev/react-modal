@@ -1,4 +1,4 @@
-import { Children, cloneElement, useContext, useEffect } from 'react';
+import React, { Children, cloneElement, useContext, useEffect } from 'react';
 
 import ModalContext from './ModalContext';
 
@@ -11,12 +11,12 @@ export default function GlobalModals({ children }) {
   }, []);
 
   return (
-    <div>
+    <>
       {Children.map(children, (child) => {
         return cloneElement(child, {
           isOpen: openedModals?.[child?.props?.name],
         });
       })}
-    </div>
+    </>
   );
 }
