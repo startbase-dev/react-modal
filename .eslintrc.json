@@ -22,6 +22,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "react/prop-types": 0,
     "@next/next/no-img-element": ["off"],
     "jsx-a11y/alt-text": ["off"],
     "linebreak-style": [2, "unix"],
