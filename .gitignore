@@ -36,3 +36,6 @@ next-env.d.ts
 
 .idea
 package-lock.json
+
+# dist
+/dist
