@@ -1,17 +1,14 @@
 // src/GlobalModals.js
-import React, { Children, cloneElement, useContext, useEffect } from "react";
+import React, { Children, cloneElement, useContext, useEffect } from 'react';
 
 // src/ModalContext.js
-import { createContext } from "react";
+import { createContext } from 'react';
 var initialContextState = {
   modals: [],
   openedModals: [],
-  setModals: () => {
-  },
-  openModal: () => {
-  },
-  closeModal: () => {
-  }
+  setModals: () => {},
+  openModal: () => {},
+  closeModal: () => {},
 };
 var ModalContext = createContext(initialContextState);
 var Provider = ModalContext.Provider;
@@ -21,23 +18,42 @@ var ModalContext_default = ModalContext;
 function GlobalModals({ children }) {
   const { setModals, openedModals } = useContext(ModalContext_default);
   useEffect(() => {
-    const modals = children == null ? void 0 : children.map((item) => {
-      var _a;
-      return (_a = item == null ? void 0 : item.props) == null ? void 0 : _a.name;
-    });
+    const modals =
+      children == null
+        ? void 0
+        : children.map((item) => {
+            var _a;
+            return (_a = item == null ? void 0 : item.props) == null
+              ? void 0
+              : _a.name;
+          });
     setModals(modals);
   }, []);
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, Children.map(children, (child) => {
-    var _a;
-    return cloneElement(child, {
-      isOpen: openedModals == null ? void 0 : openedModals[(_a = child == null ? void 0 : child.props) == null ? void 0 : _a.name]
-    });
-  }));
+  return /* @__PURE__ */ React.createElement(
+    React.Fragment,
+    null,
+    Children.map(children, (child) => {
+      var _a;
+      return cloneElement(child, {
+        isOpen:
+          openedModals == null
+            ? void 0
+            : openedModals[
+                (_a = child == null ? void 0 : child.props) == null
+                  ? void 0
+                  : _a.name
+              ],
+      });
+    })
+  );
 }
 
 // src/Modal.js
-import React2, { useContext as useContext2, useEffect as useEffect2 } from "react";
-import ReactModal from "react-modal";
+import React2, {
+  useContext as useContext2,
+  useEffect as useEffect2,
+} from 'react';
+import ReactModal from 'react-modal';
 function Modal({ appElement, name, children, isOpen, ...rest }) {
   const { closeModal } = useContext2(ModalContext_default);
   useEffect2(() => {
@@ -45,9 +61,9 @@ function Modal({ appElement, name, children, isOpen, ...rest }) {
   }, [appElement]);
   useEffect2(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
   }, [isOpen]);
   return /* @__PURE__ */ React2.createElement(
@@ -60,17 +76,17 @@ function Modal({ appElement, name, children, isOpen, ...rest }) {
       isOpen,
       onRequestClose: () => closeModal(name),
       shouldCloseOnOverlayClick: true,
-      ...rest
+      ...rest,
     },
     children
   );
 }
 
 // src/ModalProvider.js
-import React3 from "react";
+import React3 from 'react';
 
 // src/useCreateContext.js
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 function useCreateContext() {
   const [modals, setModals] = useState([]);
   const [openedModals, setOpenedModals] = useState({});
@@ -78,7 +94,7 @@ function useCreateContext() {
     setOpenedModals((prevState) => {
       return {
         ...prevState,
-        [modalName]: true
+        [modalName]: true,
       };
     });
   }, []);
@@ -86,7 +102,7 @@ function useCreateContext() {
     setOpenedModals((prevState) => {
       return {
         ...prevState,
-        [modalName]: false
+        [modalName]: false,
       };
     });
   }, []);
@@ -95,14 +111,15 @@ function useCreateContext() {
     setModals,
     openedModals,
     openModal,
-    closeModal
+    closeModal,
   };
 }
 var useCreateContext_default = useCreateContext;
 
 // src/ModalProvider.js
 var ModalProvider = ({ children }) => {
-  const { modals, openedModals, setModals, openModal, closeModal } = useCreateContext_default();
+  const { modals, openedModals, setModals, openModal, closeModal } =
+    useCreateContext_default();
   return /* @__PURE__ */ React3.createElement(
     Provider,
     {
@@ -111,8 +128,8 @@ var ModalProvider = ({ children }) => {
         openedModals,
         setModals,
         openModal,
-        closeModal
-      }
+        closeModal,
+      },
     },
     children
   );
@@ -120,14 +137,15 @@ var ModalProvider = ({ children }) => {
 var ModalProvider_default = ModalProvider;
 
 // src/useModal.js
-import { useContext as useContext3 } from "react";
+import { useContext as useContext3 } from 'react';
 function useModal() {
-  const { modals, openedModals, openModal, closeModal } = useContext3(ModalContext_default);
+  const { modals, openedModals, openModal, closeModal } =
+    useContext3(ModalContext_default);
   return {
     modals,
     openedModals,
     openModal,
-    closeModal
+    closeModal,
   };
 }
 var useModal_default = useModal;
@@ -135,5 +153,5 @@ export {
   GlobalModals,
   Modal,
   ModalProvider_default as ModalProvider,
-  useModal_default as useModal
+  useModal_default as useModal,
 };
