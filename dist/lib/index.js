@@ -9,31 +9,22 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 var __copyProps = (to, from, except, desc) => {
-  if ((from && typeof from === 'object') || typeof from === 'function') {
+  if (from && typeof from === "object" || typeof from === "function") {
     for (let key of __getOwnPropNames(from))
       if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, {
-          get: () => from[key],
-          enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable,
-        });
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (
-  (target = mod != null ? __create(__getProtoOf(mod)) : {}),
-  __copyProps(
-    // If the importer is in node compatibility mode or this is not an ESM
-    // file that has been converted to a CommonJS file using a Babel-
-    // compatible transform (i.e. "__esModule" has not been set), then set
-    // "default" to the CommonJS "module.exports" for node compatibility.
-    isNodeMode || !mod || !mod.__esModule
-      ? __defProp(target, 'default', { value: mod, enumerable: true })
-      : target,
-    mod
-  )
-);
-var __toCommonJS = (mod) =>
-  __copyProps(__defProp({}, '__esModule', { value: true }), mod);
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.js
 var src_exports = {};
@@ -41,21 +32,24 @@ __export(src_exports, {
   GlobalModals: () => GlobalModals,
   Modal: () => Modal,
   ModalProvider: () => ModalProvider_default,
-  useModal: () => useModal_default,
+  useModal: () => useModal_default
 });
 module.exports = __toCommonJS(src_exports);
 
 // src/GlobalModals.js
-var import_react2 = __toESM(require('react'));
+var import_react2 = __toESM(require("react"));
 
 // src/ModalContext.js
-var import_react = require('react');
+var import_react = require("react");
 var initialContextState = {
   modals: [],
   openedModals: [],
-  setModals: () => {},
-  openModal: () => {},
-  closeModal: () => {},
+  setModals: () => {
+  },
+  openModal: () => {
+  },
+  closeModal: () => {
+  }
 };
 var ModalContext = (0, import_react.createContext)(initialContextState);
 var Provider = ModalContext.Provider;
@@ -63,43 +57,25 @@ var ModalContext_default = ModalContext;
 
 // src/GlobalModals.js
 function GlobalModals({ children }) {
-  const { setModals, openedModals } = (0, import_react2.useContext)(
-    ModalContext_default
-  );
+  const { setModals, openedModals } = (0, import_react2.useContext)(ModalContext_default);
   (0, import_react2.useEffect)(() => {
-    const modals =
-      children == null
-        ? void 0
-        : children.map((item) => {
-            var _a;
-            return (_a = item == null ? void 0 : item.props) == null
-              ? void 0
-              : _a.name;
-          });
+    const modals = children == null ? void 0 : children.map((item) => {
+      var _a;
+      return (_a = item == null ? void 0 : item.props) == null ? void 0 : _a.name;
+    });
     setModals(modals);
   }, []);
-  return /* @__PURE__ */ import_react2.default.createElement(
-    import_react2.default.Fragment,
-    null,
-    import_react2.Children.map(children, (child) => {
-      var _a;
-      return (0, import_react2.cloneElement)(child, {
-        isOpen:
-          openedModals == null
-            ? void 0
-            : openedModals[
-                (_a = child == null ? void 0 : child.props) == null
-                  ? void 0
-                  : _a.name
-              ],
-      });
-    })
-  );
+  return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, import_react2.Children.map(children, (child) => {
+    var _a;
+    return (0, import_react2.cloneElement)(child, {
+      isOpen: openedModals == null ? void 0 : openedModals[(_a = child == null ? void 0 : child.props) == null ? void 0 : _a.name]
+    });
+  }));
 }
 
 // src/Modal.js
-var import_react3 = __toESM(require('react'));
-var import_react_modal = __toESM(require('react-modal'));
+var import_react3 = __toESM(require("react"));
+var import_react_modal = __toESM(require("react-modal"));
 function Modal({ appElement, name, children, isOpen, ...rest }) {
   const { closeModal } = (0, import_react3.useContext)(ModalContext_default);
   (0, import_react3.useEffect)(() => {
@@ -107,9 +83,9 @@ function Modal({ appElement, name, children, isOpen, ...rest }) {
   }, [appElement]);
   (0, import_react3.useEffect)(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
   }, [isOpen]);
   return /* @__PURE__ */ import_react3.default.createElement(
@@ -122,17 +98,17 @@ function Modal({ appElement, name, children, isOpen, ...rest }) {
       isOpen,
       onRequestClose: () => closeModal(name),
       shouldCloseOnOverlayClick: true,
-      ...rest,
+      ...rest
     },
     children
   );
 }
 
 // src/ModalProvider.js
-var import_react5 = __toESM(require('react'));
+var import_react5 = __toESM(require("react"));
 
 // src/useCreateContext.js
-var import_react4 = require('react');
+var import_react4 = require("react");
 function useCreateContext() {
   const [modals, setModals] = (0, import_react4.useState)([]);
   const [openedModals, setOpenedModals] = (0, import_react4.useState)({});
@@ -140,7 +116,7 @@ function useCreateContext() {
     setOpenedModals((prevState) => {
       return {
         ...prevState,
-        [modalName]: true,
+        [modalName]: true
       };
     });
   }, []);
@@ -148,7 +124,7 @@ function useCreateContext() {
     setOpenedModals((prevState) => {
       return {
         ...prevState,
-        [modalName]: false,
+        [modalName]: false
       };
     });
   }, []);
@@ -157,15 +133,14 @@ function useCreateContext() {
     setModals,
     openedModals,
     openModal,
-    closeModal,
+    closeModal
   };
 }
 var useCreateContext_default = useCreateContext;
 
 // src/ModalProvider.js
 var ModalProvider = ({ children }) => {
-  const { modals, openedModals, setModals, openModal, closeModal } =
-    useCreateContext_default();
+  const { modals, openedModals, setModals, openModal, closeModal } = useCreateContext_default();
   return /* @__PURE__ */ import_react5.default.createElement(
     Provider,
     {
@@ -174,8 +149,8 @@ var ModalProvider = ({ children }) => {
         openedModals,
         setModals,
         openModal,
-        closeModal,
-      },
+        closeModal
+      }
     },
     children
   );
@@ -183,23 +158,21 @@ var ModalProvider = ({ children }) => {
 var ModalProvider_default = ModalProvider;
 
 // src/useModal.js
-var import_react6 = require('react');
+var import_react6 = require("react");
 function useModal() {
-  const { modals, openedModals, openModal, closeModal } = (0,
-  import_react6.useContext)(ModalContext_default);
+  const { modals, openedModals, openModal, closeModal } = (0, import_react6.useContext)(ModalContext_default);
   return {
     modals,
     openedModals,
     openModal,
-    closeModal,
+    closeModal
   };
 }
 var useModal_default = useModal;
 // Annotate the CommonJS export names for ESM import in node:
-0 &&
-  (module.exports = {
-    GlobalModals,
-    Modal,
-    ModalProvider,
-    useModal,
-  });
+0 && (module.exports = {
+  GlobalModals,
+  Modal,
+  ModalProvider,
+  useModal
+});

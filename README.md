@@ -26,6 +26,23 @@ and gives examples of its usage.
 
 Nextjs example can show all features how to use.
 
+To style the modal, you can utilize the `className` and `overlayClassName` props. When it comes to Next.js client-side rendering, you can re-export components with a comment indicating the use of the `use client` approach.
+
+```jsx
+Modal.js;
+
+"use client";
+
+import { Modal as ReactModal, GlobalModals, ModalProvider, useModal } from "@start-base/react-modal";
+
+import styles from './Modal.module.css'
+
+const Modal = ({...props}) => <ReactModal appElement="html" {...props} className={styles.modal} overlayClassName={styles.overlay} />;
+
+export { Modal, GlobalModals, ModalProvider, useModal };
+
+```
+
 ```jsx
 page.js;
 
@@ -240,7 +257,8 @@ ReactDOM.render(<App />, appElement);
 
 ## Demos
 
-There are several demos hosted on [CodeSandbox](https://codesandbox.io/) which
+There are several demos hosted on [Vercel](https://modal-umber.vercel.app/) which
 demonstrate various features of @start-base/react-modal:
 
-- [Nextjs Global Modals Example]()
+- [Nextjs Global Modals Example](/examples/nextjs)
+- [Nextjs Demo](https://modal-umber.vercel.app/)
