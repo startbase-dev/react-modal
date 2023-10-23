@@ -7,11 +7,10 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:compat/recommended",
     "plugin:react/recommended",
+    "plugin:compat/recommended",
     "plugin:prettier/recommended",
-    "prettier",
-    "plugin:storybook/recommended"
+    "prettier"
   ],
   "plugins": ["compat", "prettier"],
   "parserOptions": {
@@ -21,9 +20,13 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "react/prop-types": 0,
-    "@next/next/no-img-element": ["off"],
     "jsx-a11y/alt-text": ["off"],
     "linebreak-style": [2, "unix"],
     "semi": [2, "always"],

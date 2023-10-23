@@ -1,54 +1,83 @@
 {
-  "name": "react-modal",
-  "version": "1.3.0",
+  "name": "@start-base/react-modal",
+  "author": "Start-Base",
+  "version": "1.0.4",
+  "description": "Accessible modal dialog component and global modals provider for React.JS. This package is a enhanced version of react-modal.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/startbase-dev/react-modal.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "modal",
+    "modal-context",
+    "modal-provider",
+    "useModal",
+    "global-modals",
+    "dialog",
+    "react",
+    "react-component",
+    "ui"
+  ],
   "main": "dist/lib/index.cjs",
   "module": "dist/lib/index.js",
   "scripts": {
-    "lint": "eslint --fix",
+    "lint": "eslint src/**/*.js --fix",
     "format": "prettier --write .",
+    "stylelint": "stylelint \"**/*.css\" --fix",
     "unimported": "npx unimported",
     "release": "release-it",
-    "postinstall": "husky install",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build:lib": "rm -rf dist/lib && tsup src/index.js --out-dir dist/lib --format cjs,esm --loader .js=jsx"
+    "build:lib": "rm -rf dist/lib && tsup src/index.js --out-dir dist/lib"
   },
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-modal": "^3.0.0"
   },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-modal": "^3.0.0"
+  },
   "devDependencies": {
-    "@babel/core": "7.22.11",
-    "@babel/preset-env": "7.22.14",
-    "@babel/preset-react": "7.22.5",
-    "@storybook/addon-essentials": "7.4.0",
-    "@storybook/addon-interactions": "7.4.0",
-    "@storybook/addon-links": "7.4.0",
-    "@storybook/addon-onboarding": "1.0.8",
-    "@storybook/blocks": "7.4.0",
-    "@storybook/react": "7.4.0",
-    "@storybook/react-webpack5": "^7.4.0",
-    "@storybook/testing-library": "0.2.0",
-    "autoprefixer": "^10.4.15",
+    "@babel/core": "7.23.2",
+    "@babel/preset-env": "7.23.2",
+    "@babel/preset-react": "7.22.15",
+    "autoprefixer": "10.4.16",
     "babel-loader": "9.1.3",
-    "eslint": "8.48.0",
-    "eslint-config-next": "13.4.19",
+    "eslint": "8.52.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-compat": "4.2.0",
-    "eslint-plugin-prettier": "5.0.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-storybook": "0.6.13",
+    "eslint-plugin-prettier": "5.0.1",
+    "eslint-plugin-react": "7.33.2",
     "husky": "8.0.3",
     "prettier": "3.0.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-modal": "^3.0.0",
-    "release-it": "16.1.5",
-    "storybook": "7.4.0",
+    "release-it": "16.2.1",
     "tsup": "7.2.0",
-    "webpack": "5.88.2",
-    "webpack-bundle-analyzer": "^4.9.1",
+    "webpack": "5.89.0",
+    "webpack-bundle-analyzer": "4.9.1",
     "webpack-cli": "5.1.4"
-  }
+  },
+  "tsup": {
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "loader": {
+      ".js": "jsx"
+    },
+    "dts": false,
+    "sourcemap": false,
+    "clean": true
+  },
+  "bugs": {
+    "url": "https://github.com/startbase-dev/react-modal/issues"
+  },
+  "homepage": "https://github.com/startbase-dev/react-modal#readme"
 }
+
