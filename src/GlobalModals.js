@@ -5,14 +5,16 @@ import ModalContext from './ModalContext';
 export default function GlobalModals({ children }) {
   const { setModals, openedModals } = useContext(ModalContext);
 
+  const childrenArray = Children.toArray(children);
+
   useEffect(() => {
-    const modals = children?.map((item) => item?.props?.name);
+    const modals = childrenArray?.map((item) => item?.props?.name);
     setModals(modals);
   }, []);
 
   return (
     <>
-      {Children.map(children, (child, index) => {
+      {Children.map(childrenArray, (child, index) => {
         return cloneElement(child, {
           isOpen: openedModals?.[child?.props?.name],
           style: {

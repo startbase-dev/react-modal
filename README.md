@@ -1,6 +1,8 @@
 # @start-base/react-modal
 
+![npm](https://img.shields.io/npm/v/%40start-base%2Freact-modal)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/%40start-base%2Freact-modal)
+![npm](https://img.shields.io/npm/dm/%40start-base/react-modal)
 
 Accessible modal dialog component and global modals provider for React.JS. This package is a enhanced version of [`react-modal`](https://github.com/reactjs/react-modal/).
 
