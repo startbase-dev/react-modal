@@ -30,8 +30,7 @@ Nextjs example can show all features how to use.
 
 To style the modal, you can utilize the `className` and `overlayClassName` props. When it comes to Next.js client-side rendering, you can re-export components with a comment indicating the use of the `use client` approach.
 
-```jsx
-Modal.js;
+```jsx:Modal.js
 
 ('use client');
 
