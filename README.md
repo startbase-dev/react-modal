@@ -1,26 +1,30 @@
 # @start-base/react-modal
 
+![npm](https://img.shields.io/npm/l/%40start-base%2Freact-modal)
 ![npm](https://img.shields.io/npm/v/%40start-base%2Freact-modal)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/%40start-base%2Freact-modal)
-![npm](https://img.shields.io/npm/dm/%40start-base/react-modal)
+![npm](https://img.shields.io/npm/dt/%40start-base/react-modal)
 
+## Introduction
 Accessible modal dialog component and global modals provider for React.JS. This package is a enhanced version of [`react-modal`](https://github.com/reactjs/react-modal/).
-
-## Table of Contents
-
-- [Installation](#installation)
-- [API documentation](#documentation)
-- [Examples](#examples)
-- [Demos](#demos)
+- React portal
+- Global modals provider
+- Hooks
 
 ## Installation
-
 To install, you can use [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com):
 
+```bash:Terminal
     $ npm install --save @start-base/react-modal
-    $ yarn add @start-base/react-modal
+```
 
-## Documentation
+or
+
+```bash:Terminal
+    $ yarn add @start-base/react-modal
+```
+
+## Usage
 
 The primary documentation for Modal component is the
 [react-modal](https://reactjs.github.io/react-modal), which describes the API
@@ -30,10 +34,8 @@ Nextjs example can show all features how to use.
 
 To style the modal, you can utilize the `className` and `overlayClassName` props. When it comes to Next.js client-side rendering, you can re-export components with a comment indicating the use of the `use client` approach.
 
-```jsx
-Modal.js;
-
-('use client');
+```jsx:Modal.js
+'use client';
 
 import {
   Modal as ReactModal,
@@ -56,9 +58,7 @@ const Modal = ({ ...props }) => (
 export { Modal, GlobalModals, ModalProvider, useModal };
 ```
 
-```jsx
-page.js;
-
+```jsx:page.js
 import styles from './page.module.css';
 import CustomModal from '@/components/CustomModal';
 
@@ -73,9 +73,7 @@ export default function Home() {
 }
 ```
 
-```jsx
-layout.js;
-
+```jsx:layout.js
 import { Inter } from 'next/font/google';
 import { ModalProvider } from '@start-base/react-modal';
 import Modals from '@/components/Modals';
@@ -101,10 +99,8 @@ export default function RootLayout({ children }) {
 }
 ```
 
-```jsx
-components / CustomModal.js;
-
-('use client');
+```jsx:components/CustomModal.js;
+'use client';
 import { Modal, useModal } from '@start-base/react-modal';
 import { useState } from 'react';
 
@@ -132,10 +128,8 @@ export default function CustomModal() {
 }
 ```
 
-```jsx
-components / Modals.js;
-
-('use client');
+```jsx:components/Modals.js;
+'use client';
 import { Modal, useModal, GlobalModals } from '@start-base/react-modal';
 
 export default function Modals() {
@@ -199,79 +193,117 @@ export default function Modals() {
 }
 ```
 
-## Examples
+## Components
+### Modal
+### GlobalModals
 
-Here is a simple example of @start-base/react-modal being used in an app with some custom
-styles and focusable input elements within the modal content:
+## Provider
+### ModalProvider
 
-```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Modal } from '@start-base/react-modal';
+## Hook
+### useModal
 
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
+## Styling and Animation
+Dont forget to add closeTimeoutMS props to Modal component.
+```jsx:Modal.js
+'use client';
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement('#yourAppElement');
+import {
+  Modal as ReactModal,
+  GlobalModals,
+  ModalProvider,
+  useModal,
+} from '@start-base/react-modal';
 
-function App() {
-  let subtitle;
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+import styles from './Modal.module.css';
 
-  function openModal() {
-    setIsOpen(true);
-  }
+const Modal = ({ ...props }) => (
+  <ReactModal
+    closeTimeoutMS={400}
+    appElement="html"
+    {...props}
+    className={styles.modal}
+    overlayClassName={styles.overlay}
+  />
+);
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  return (
-    <div>
-      <button onClick={openModal}>Open Modal</button>
-      <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
-      </Modal>
-    </div>
-  );
-}
-
-ReactDOM.render(<App />, appElement);
+export { Modal, GlobalModals, ModalProvider, useModal };
 ```
 
-## Demos
+```css:Modal.module.css
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  padding: 2rem;
+  overflow: auto;
+  outline: none;
+  border-radius: 10px;
+  background-color: var(--black);
+  box-shadow:
+          0 1px 5px rgba(0, 0, 0, 0.2),
+          0 1px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  color: var(--white);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 
-There are several demos hosted on [Vercel](https://modal-umber.vercel.app/) which
+  @media (max-width: 768px) {
+    max-width: 90%;
+  }
+}
+
+.modal[class~="ReactModal__Content--after-open"] {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal[class~="ReactModal__Content--before-close"] {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+}
+
+.overlay[class~="ReactModal__Overlay--after-open"] {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay[class~="ReactModal__Overlay--before-close"] {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+```
+
+## Examples
+- [Nextjs Global Modals Example](/examples/nextjs)
+
+## Demos
+There are several demos hosted on [Vercel](https://react-modal-tau.vercel.app/) which
 demonstrate various features of @start-base/react-modal:
 
-- [Nextjs Global Modals Example](/examples/nextjs)
-- [Nextjs Demo](https://modal-umber.vercel.app/)
+- [Nextjs Demo](https://react-modal-tau.vercel.app/)
+
+![](og.png)
+<br />
+
+<div align="center">
+<a href="https://startbase.dev/oss/react-form-elements">Website</a> 
+<span> · </span>
+<a href="https://www.npmjs.com/search?q=%40start-base">Npm</a> 
+<span> · </span>
+<a href="https://twitter.com/start_base_dev">Twitter</a>
+</div>
+
+<br />
+<div align="center">
+  <sub>Developed by <a href="https://startbase.dev">Startbase</a> 🧑‍💻</sub>
+</div>
+
+<br />
