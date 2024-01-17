@@ -36,7 +36,6 @@ To style the modal, you can utilize the `className` and `overlayClassName` props
 
 ```jsx:Modal.js
 'use client';
-
 import {
   Modal as ReactModal,
   GlobalModals,
