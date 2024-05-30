@@ -14,13 +14,13 @@ Accessible modal dialog component and global modals provider for React.JS. This 
 ## Installation
 To install, you can use [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com):
 
-```bash:Terminal
+```bash title="Terminal"
     $ npm install --save @start-base/react-modal
 ```
 
 or
 
-```bash:Terminal
+```bash title="Terminal"
     $ yarn add @start-base/react-modal
 ```
 
@@ -34,7 +34,7 @@ Nextjs example can show all features how to use.
 
 To style the modal, you can utilize the `className` and `overlayClassName` props. When it comes to Next.js client-side rendering, you can re-export components with a comment indicating the use of the `use client` approach.
 
-```jsx:Modal.js
+```jsx title="Modal.js"
 'use client';
 import {
   Modal as ReactModal,
@@ -57,7 +57,7 @@ const Modal = ({ ...props }) => (
 export { Modal, GlobalModals, ModalProvider, useModal };
 ```
 
-```jsx:page.js
+```jsx title="page.js"
 import styles from './page.module.css';
 import CustomModal from '@/components/CustomModal';
 
@@ -72,7 +72,7 @@ export default function Home() {
 }
 ```
 
-```jsx:layout.js
+```jsx title="layout.js"
 import { Inter } from 'next/font/google';
 import { ModalProvider } from '@start-base/react-modal';
 import Modals from '@/components/Modals';
@@ -98,7 +98,7 @@ export default function RootLayout({ children }) {
 }
 ```
 
-```jsx:components/CustomModal.js;
+```jsx title="components/CustomModal.js"
 'use client';
 import { Modal, useModal } from '@start-base/react-modal';
 import { useState } from 'react';
@@ -127,7 +127,7 @@ export default function CustomModal() {
 }
 ```
 
-```jsx:components/Modals.js;
+```jsx title="components/Modals.js"
 'use client';
 import { Modal, useModal, GlobalModals } from '@start-base/react-modal';
 
@@ -204,7 +204,7 @@ export default function Modals() {
 
 ## Styling and Animation
 Dont forget to add closeTimeoutMS props to Modal component.
-```jsx:Modal.js
+```jsx title="Modal.js"
 'use client';
 
 import {
@@ -229,7 +229,7 @@ const Modal = ({ ...props }) => (
 export { Modal, GlobalModals, ModalProvider, useModal };
 ```
 
-```css:Modal.module.css
+```css title="Modal.module.css"
 .modal {
   position: fixed;
   top: 50%;
