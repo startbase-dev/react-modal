@@ -6,12 +6,15 @@
 ![npm](https://img.shields.io/npm/dt/%40start-base/react-modal)
 
 ## Introduction
+
 Accessible modal dialog component and global modals provider for React.JS. This package is a enhanced version of [`react-modal`](https://github.com/reactjs/react-modal/).
+
 - React portal
 - Global modals provider
 - Hooks
 
 ## Installation
+
 To install, you can use [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com):
 
 ```bash:Terminal
@@ -193,17 +196,23 @@ export default function Modals() {
 ```
 
 ## Components
+
 ### Modal
+
 ### GlobalModals
 
 ## Provider
+
 ### ModalProvider
 
 ## Hook
+
 ### useModal
 
 ## Styling and Animation
+
 Dont forget to add closeTimeoutMS props to Modal component.
+
 ```jsx:Modal.js
 'use client';
 
@@ -281,9 +290,11 @@ export { Modal, GlobalModals, ModalProvider, useModal };
 ```
 
 ## Examples
+
 - [Nextjs Global Modals Example](/examples/nextjs)
 
 ## Demos
+
 There are several demos hosted on [Vercel](https://react-modal-tau.vercel.app/) which
 demonstrate various features of @start-base/react-modal:
 

@@ -3,6 +3,7 @@ import { createContext } from 'react';
 const initialContextState = {
   modals: [],
   openedModals: {},
+  modalProps: {},
   setModals: () => {},
   openModal: () => {},
   closeModal: () => {},
