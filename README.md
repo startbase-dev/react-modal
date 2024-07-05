@@ -212,6 +212,7 @@ export default function Modals() {
 ## Styling and Animation
 
 Dont forget to add closeTimeoutMS props to Modal component.
+
 ```jsx title="Modal.js"
 'use client';
 
@@ -249,24 +250,26 @@ export { Modal, GlobalModals, ModalProvider, useModal };
   border-radius: 10px;
   background-color: var(--black);
   box-shadow:
-          0 1px 5px rgba(0, 0, 0, 0.2),
-          0 1px 10px rgba(0, 0, 0, 0.1);
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 1px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   color: var(--white);
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 
   @media (max-width: 768px) {
     max-width: 90%;
   }
 }
 
-.modal[class~="ReactModal__Content--after-open"] {
+.modal[class~='ReactModal__Content--after-open'] {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
 
-.modal[class~="ReactModal__Content--before-close"] {
+.modal[class~='ReactModal__Content--before-close'] {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.8);
 }
@@ -278,14 +281,13 @@ export { Modal, GlobalModals, ModalProvider, useModal };
   transition: background-color 0.3s ease;
 }
 
-.overlay[class~="ReactModal__Overlay--after-open"] {
+.overlay[class~='ReactModal__Overlay--after-open'] {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.overlay[class~="ReactModal__Overlay--before-close"] {
+.overlay[class~='ReactModal__Overlay--before-close'] {
   background-color: rgba(0, 0, 0, 0);
 }
-
 ```
 
 ## Examples
