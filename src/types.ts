@@ -1,8 +1,9 @@
 import ReactModal from 'react-modal';
 import { ReactNode } from 'react';
 
-export interface ReactModalProps extends ReactModal.Props {
+export interface ReactModalProps extends Omit<ReactModal.Props, 'appElement'> {
   name: string;
+  appElement?: string | HTMLElement;
 }
 
 export interface GlobalModalsProps {
@@ -11,9 +12,9 @@ export interface GlobalModalsProps {
 
 export interface ModalContextType {
   modals: string[];
-  openedModals: Record<string, boolean>; // Key-value pair for modal names and their open status
-  modalProps: object;
+  openedModals: Record<string, boolean>;
+  modalProps: Record<string, Record<string, any>>;
   setModals: (modals: string[]) => void;
-  openModal: (name: string, props: object) => void;
+  openModal: (name: string, props: Record<string, Record<string, any>>) => void;
   closeModal: (name: string) => void;
 }
