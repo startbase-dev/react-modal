@@ -1,6 +1,7 @@
 import { createContext } from 'react';
+import { ModalContextType } from './types';
 
-const initialContextState = {
+const initialContextState: ModalContextType = {
   modals: [],
   openedModals: {},
   setModals: () => {},
@@ -8,7 +9,7 @@ const initialContextState = {
   closeModal: () => {},
 };
 
-const ModalContext = createContext(initialContextState);
+const ModalContext = createContext<ModalContextType>(initialContextState);
 
 export const Provider = ModalContext.Provider;
 

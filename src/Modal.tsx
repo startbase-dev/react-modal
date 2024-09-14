@@ -1,22 +1,17 @@
 import React, { useContext, useEffect } from 'react';
-
-import ReactModal from 'react-modal';
-
 import ModalContext from './ModalContext';
+import ReactModal from 'react-modal';
+import { ReactModalProps } from './types';
 
-export default function Modal({ appElement, name, children, isOpen, ...rest }) {
+const Modal: React.FC<ReactModalProps> = ({ appElement, name, children, isOpen, ...rest }) => {
   const { closeModal } = useContext(ModalContext);
 
   useEffect(() => {
-    ReactModal.setAppElement(appElement);
+    ReactModal.setAppElement(appElement as HTMLElement);
   }, [appElement]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
   }, [isOpen]);
 
   return (
@@ -24,7 +19,6 @@ export default function Modal({ appElement, name, children, isOpen, ...rest }) {
       id={name}
       closeTimeoutMS={100}
       contentLabel={name}
-      name={name}
       isOpen={isOpen}
       onRequestClose={() => closeModal(name)}
       shouldCloseOnOverlayClick
@@ -33,4 +27,6 @@ export default function Modal({ appElement, name, children, isOpen, ...rest }) {
       {children}
     </ReactModal>
   );
-}
+};
+
+export default Modal;
