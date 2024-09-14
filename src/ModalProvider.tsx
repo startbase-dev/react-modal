@@ -3,7 +3,7 @@ import { Provider } from './ModalContext';
 import useCreateContext from './useCreateContext';
 
 const ModalProvider = ({ children }: { children: React.ReactNode }) => {
-  const { modals, openedModals, setModals, openModal, closeModal } =
+  const { modals, openedModals, modalProps, setModals, openModal, closeModal } =
     useCreateContext();
 
   return (
@@ -11,7 +11,8 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
       value={{
         modals: modals,
         openedModals: openedModals,
-        setModals: setModals as React.Dispatch<React.SetStateAction<any[]>>,
+        modalProps: modalProps,
+        setModals: setModals as React.Dispatch<React.SetStateAction<string[]>>,
         openModal: openModal,
         closeModal: closeModal,
       }}

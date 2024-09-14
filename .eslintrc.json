@@ -7,14 +7,13 @@
   },
   "parser": "@typescript-eslint/parser",
   "extends": [
+    "eslint:recommended",
     "plugin:@typescript-eslint/strict",
     "plugin:@typescript-eslint/stylistic",
-    "eslint:recommended",
     "plugin:react/recommended",
     "plugin:compat/recommended",
     "plugin:prettier/recommended",
     "prettier"
-    
   ],
   "plugins": ["compat", "prettier", "@typescript-eslint"],
   "parserOptions": {

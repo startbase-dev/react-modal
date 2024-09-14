@@ -4,9 +4,10 @@ import { ModalContextType } from './types';
 const initialContextState: ModalContextType = {
   modals: [],
   openedModals: {},
-  setModals: () => {},
-  openModal: () => {},
-  closeModal: () => {},
+  modalProps: {},
+  setModals: () => ({}),
+  openModal: () => ({}),
+  closeModal: () => ({}),
 };
 
 const ModalContext = createContext<ModalContextType>(initialContextState);

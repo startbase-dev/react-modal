@@ -1,4 +1,4 @@
-import  ReactModal  from 'react-modal';
+import ReactModal from 'react-modal';
 import { ReactNode } from 'react';
 
 export interface ReactModalProps extends ReactModal.Props {
@@ -11,8 +11,9 @@ export interface GlobalModalsProps {
 
 export interface ModalContextType {
   modals: string[];
-  openedModals: { [key: string]: boolean }; // Key-value pair for modal names and their open status
+  openedModals: Record<string, boolean>; // Key-value pair for modal names and their open status
+  modalProps: object;
   setModals: (modals: string[]) => void;
-  openModal: (name: string) => void;
+  openModal: (name: string, props: object) => void;
   closeModal: (name: string) => void;
 }

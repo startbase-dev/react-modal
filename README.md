@@ -6,21 +6,24 @@
 ![npm](https://img.shields.io/npm/dt/%40start-base/react-modal)
 
 ## Introduction
+
 Accessible modal dialog component and global modals provider for React.JS. This package is a enhanced version of [`react-modal`](https://github.com/reactjs/react-modal/).
+
 - React portal
 - Global modals provider
 - Hooks
 
 ## Installation
+
 To install, you can use [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com):
 
-```bash:Terminal
+```bash title="Terminal"
     $ npm install --save @start-base/react-modal
 ```
 
 or
 
-```bash:Terminal
+```bash title="Terminal"
     $ yarn add @start-base/react-modal
 ```
 
@@ -34,7 +37,7 @@ Nextjs example can show all features how to use.
 
 To style the modal, you can utilize the `className` and `overlayClassName` props. When it comes to Next.js client-side rendering, you can re-export components with a comment indicating the use of the `use client` approach.
 
-```jsx:Modal.js
+```jsx title="Modal.js"
 'use client';
 import {
   Modal as ReactModal,
@@ -57,7 +60,7 @@ const Modal = ({ ...props }) => (
 export { Modal, GlobalModals, ModalProvider, useModal };
 ```
 
-```jsx:page.js
+```jsx title="page.js"
 import styles from './page.module.css';
 import CustomModal from '@/components/CustomModal';
 
@@ -72,7 +75,7 @@ export default function Home() {
 }
 ```
 
-```jsx:layout.js
+```jsx title="layout.js"
 import { Inter } from 'next/font/google';
 import { ModalProvider } from '@start-base/react-modal';
 import Modals from '@/components/Modals';
@@ -98,7 +101,7 @@ export default function RootLayout({ children }) {
 }
 ```
 
-```jsx:components/CustomModal.js;
+```jsx title="components/CustomModal.js"
 'use client';
 import { Modal, useModal } from '@start-base/react-modal';
 import { useState } from 'react';
@@ -127,7 +130,7 @@ export default function CustomModal() {
 }
 ```
 
-```jsx:components/Modals.js;
+```jsx title="components/Modals.js"
 'use client';
 import { Modal, useModal, GlobalModals } from '@start-base/react-modal';
 
@@ -193,18 +196,24 @@ export default function Modals() {
 ```
 
 ## Components
+
 ### Modal
+
 ### GlobalModals
 
 ## Provider
+
 ### ModalProvider
 
 ## Hook
+
 ### useModal
 
 ## Styling and Animation
+
 Dont forget to add closeTimeoutMS props to Modal component.
-```jsx:Modal.js
+
+```jsx title="Modal.js"
 'use client';
 
 import {
@@ -229,7 +238,7 @@ const Modal = ({ ...props }) => (
 export { Modal, GlobalModals, ModalProvider, useModal };
 ```
 
-```css:Modal.module.css
+```css title="Modal.module.css"
 .modal {
   position: fixed;
   top: 50%;
@@ -241,24 +250,26 @@ export { Modal, GlobalModals, ModalProvider, useModal };
   border-radius: 10px;
   background-color: var(--black);
   box-shadow:
-          0 1px 5px rgba(0, 0, 0, 0.2),
-          0 1px 10px rgba(0, 0, 0, 0.1);
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 1px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   color: var(--white);
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 
   @media (max-width: 768px) {
     max-width: 90%;
   }
 }
 
-.modal[class~="ReactModal__Content--after-open"] {
+.modal[class~='ReactModal__Content--after-open'] {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
 
-.modal[class~="ReactModal__Content--before-close"] {
+.modal[class~='ReactModal__Content--before-close'] {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.8);
 }
@@ -270,20 +281,21 @@ export { Modal, GlobalModals, ModalProvider, useModal };
   transition: background-color 0.3s ease;
 }
 
-.overlay[class~="ReactModal__Overlay--after-open"] {
+.overlay[class~='ReactModal__Overlay--after-open'] {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.overlay[class~="ReactModal__Overlay--before-close"] {
+.overlay[class~='ReactModal__Overlay--before-close'] {
   background-color: rgba(0, 0, 0, 0);
 }
-
 ```
 
 ## Examples
+
 - [Nextjs Global Modals Example](/examples/nextjs)
 
 ## Demos
+
 There are several demos hosted on [Vercel](https://react-modal-tau.vercel.app/) which
 demonstrate various features of @start-base/react-modal:
 

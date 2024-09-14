@@ -1,4 +1,10 @@
-import React, { Children, cloneElement, useContext, useEffect, ReactElement } from 'react';
+import React, {
+  Children,
+  cloneElement,
+  useContext,
+  useEffect,
+  ReactElement,
+} from 'react';
 import ModalContext from './ModalContext';
 import { GlobalModalsProps } from './types';
 
