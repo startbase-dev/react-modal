@@ -5,14 +5,17 @@
     "browser": true,
     "es2024": true
   },
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/strict",
+    "plugin:@typescript-eslint/stylistic",
     "plugin:react/recommended",
     "plugin:compat/recommended",
     "plugin:prettier/recommended",
     "prettier"
   ],
-  "plugins": ["compat", "prettier"],
+  "plugins": ["compat", "prettier", "@typescript-eslint"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true

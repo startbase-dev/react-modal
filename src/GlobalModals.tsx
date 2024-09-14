@@ -1,21 +1,27 @@
-import React, { Children, cloneElement, useContext, useEffect } from 'react';
-
+import React, {
+  Children,
+  cloneElement,
+  useContext,
+  useEffect,
+  ReactElement,
+} from 'react';
 import ModalContext from './ModalContext';
+import { GlobalModalsProps } from './types';
 
-export default function GlobalModals({ children }) {
+const GlobalModals: React.FC<GlobalModalsProps> = ({ children }) => {
   const { setModals, openedModals } = useContext(ModalContext);
 
-  const childrenArray = Children.toArray(children);
+  const childrenArray = Children.toArray(children) as ReactElement[];
 
   useEffect(() => {
     const modals = childrenArray?.map((item) => item?.props?.name);
     setModals(modals);
-  }, []);
+  }, [childrenArray, setModals]);
 
   return (
     <>
-      {Children.map(childrenArray, (child, index) => {
-        return cloneElement(child, {
+      {Children.map(childrenArray, (child, index) =>
+        cloneElement(child, {
           isOpen: openedModals?.[child?.props?.name],
           style: {
             ...child?.props?.style,
@@ -26,8 +32,10 @@ export default function GlobalModals({ children }) {
               ...child?.props?.style?.overlay,
             },
           },
-        });
-      })}
+        })
+      )}
     </>
   );
-}
+};
+
+export default GlobalModals;

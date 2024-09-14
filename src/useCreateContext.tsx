@@ -5,7 +5,7 @@ function useCreateContext() {
   const [openedModals, setOpenedModals] = useState({});
   const [modalProps, setModalProps] = useState({});
 
-  const openModal = useCallback((modalName, props) => {
+  const openModal = useCallback((modalName: string, props: object) => {
     setOpenedModals((prevState) => {
       return {
         ...prevState,
@@ -20,7 +20,7 @@ function useCreateContext() {
     });
   }, []);
 
-  const closeModal = useCallback((modalName) => {
+  const closeModal = useCallback((modalName: string) => {
     setOpenedModals((prevState) => {
       return {
         ...prevState,
