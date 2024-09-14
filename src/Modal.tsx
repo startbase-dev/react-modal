@@ -3,17 +3,14 @@ import ModalContext from './ModalContext';
 import ReactModal from 'react-modal';
 import { ReactModalProps } from './types';
 
-const Modal: React.FC<ReactModalProps> = ({
-  appElement,
-  name,
-  children,
-  isOpen,
-  ...rest
-}) => {
+const Modal = (
+  { name, children, isOpen, ...rest }: ReactModalProps,
+  appElement: string | HTMLElement
+) => {
   const { closeModal } = useContext(ModalContext);
 
   useEffect(() => {
-    ReactModal.setAppElement(appElement as HTMLElement);
+    ReactModal.setAppElement(appElement);
   }, [appElement]);
 
   useEffect(() => {

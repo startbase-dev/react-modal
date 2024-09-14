@@ -1,7 +1,7 @@
 {
   "name": "@start-base/react-modal",
   "author": "Start-Base",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Accessible modal dialog component and global modals provider for React.JS. This package is a enhanced version of react-modal.",
   "license": "MIT",
   "repository": {

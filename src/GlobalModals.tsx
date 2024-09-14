@@ -16,7 +16,7 @@ const GlobalModals: React.FC<GlobalModalsProps> = ({ children }) => {
   useEffect(() => {
     const modals = childrenArray?.map((item) => item?.props?.name);
     setModals(modals);
-  }, [childrenArray, setModals]);
+  }, []);
 
   return (
     <>
