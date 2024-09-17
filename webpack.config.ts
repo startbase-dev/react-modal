@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   plugins: [],
   module: {
     rules: [
@@ -7,11 +7,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
             presets: [
-              ['@babel/preset-env', { targets: 'defaults' }],
-              ['@babel/preset-react', { runtime: 'automatic' }],
+              ["@babel/preset-env", { targets: "defaults" }],
+              ["@babel/preset-react", { runtime: "automatic" }],
             ],
           },
         },

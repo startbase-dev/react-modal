@@ -22,28 +22,34 @@ Accessible modal dialog component and global modals provider for React. This pac
 </p>
 
 ---
+
 <p align="center">
 <img src="modals.gif" alt="Latest Release">
 </p>
 
 ## Documentation
+
 For full documentation, visit [start-ui.startbase.dev](https://start-ui.startbase.dev/docs/overlayComponents/modal).
 
 ## Installation
+
 ```bash title="Terminal"
 npm install --save @start-base/react-modal
 ```
 
 ## Features
+
 - React portal
 - Global modals provider
 - Hooks
 
 ## Demos
+
 There is a [Nextjs Global Modals Example](/examples/nextjs) hosted on [Nextjs Demo](https://react-modal-tau.vercel.app/) which
 demonstrate various features of @start-base/react-modal.
 
 ## Contributing
+
 Contributions are welcomed. Feel free to submit pull requests and improvements to the project!
 
 ## Contributors
