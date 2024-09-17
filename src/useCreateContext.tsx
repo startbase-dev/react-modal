@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from "react";
 
 function useCreateContext() {
   const [modals, setModals] = useState([]);
@@ -20,7 +20,7 @@ function useCreateContext() {
         };
       });
     },
-    []
+    [],
   );
 
   const closeModal = useCallback((modalName: string) => {

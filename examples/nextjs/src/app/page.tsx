@@ -1,6 +1,7 @@
-import CustomModal from '@/components/modals/CustomModal';
+import CustomModal from "@/components/modals/CustomModal";
 
-import styles from './page.module.css';
+import styles from "./page.module.css";
+import React from "react";
 
 export default function Home() {
   return (

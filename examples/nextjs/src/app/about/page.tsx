@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useModal } from '@/components/Modal/Modal';
-
-import styles from './page.module.css';
+import { useModal } from "@/components/Modal/Modal";
+import styles from "./page.module.css";
+import React from "react";
 
 export default function About() {
   const { openModal } = useModal();
@@ -10,7 +10,7 @@ export default function About() {
   return (
     <main className={styles.main}>
       <div className={styles.center}>
-        <button onClick={() => openModal('modal-1')}>
+        <button onClick={() => openModal("modal-1")}>
           open global modal 1
         </button>
       </div>

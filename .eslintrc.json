@@ -15,7 +15,7 @@
     "plugin:prettier/recommended",
     "prettier"
   ],
-  "plugins": ["compat", "prettier", "@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "compat", "prettier"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -29,7 +29,6 @@
     }
   },
   "rules": {
-    "react/prop-types": 0,
     "jsx-a11y/alt-text": ["off"],
     "linebreak-style": [2, "unix"],
     "semi": [2, "always"],
@@ -39,6 +38,9 @@
         "max": 1
       }
     ],
-    "no-useless-catch": 0
+    "no-useless-catch": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/prop-types": 0,
+    "@typescript-eslint/no-explicit-any": 0
   }
 }

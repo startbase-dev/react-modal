@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from 'react';
-import ModalContext from './ModalContext';
-import ReactModal from 'react-modal';
-import { ReactModalProps } from './types';
+import React, { useContext, useEffect } from "react";
+import ModalContext from "./ModalContext";
+import ReactModal from "react-modal";
+import { ReactModalProps } from "./types";
 
 const Modal = ({
   children,
@@ -17,7 +17,7 @@ const Modal = ({
   }, [appElement]);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
   }, [isOpen]);
 
   return (

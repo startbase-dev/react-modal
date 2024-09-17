@@ -1,6 +1,6 @@
-import React from 'react';
-import { Provider } from './ModalContext';
-import useCreateContext from './useCreateContext';
+import React from "react";
+import { Provider } from "./ModalContext";
+import useCreateContext from "./useCreateContext";
 
 const ModalProvider = ({ children }: { children: React.ReactNode }) => {
   const { modals, openedModals, modalProps, setModals, openModal, closeModal } =

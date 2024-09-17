@@ -4,9 +4,9 @@ import React, {
   useContext,
   useEffect,
   ReactElement,
-} from 'react';
-import ModalContext from './ModalContext';
-import { GlobalModalsProps } from './types';
+} from "react";
+import ModalContext from "./ModalContext";
+import { GlobalModalsProps } from "./types";
 
 const GlobalModals: React.FC<GlobalModalsProps> = ({ children }) => {
   const { setModals, openedModals } = useContext(ModalContext);
@@ -28,11 +28,11 @@ const GlobalModals: React.FC<GlobalModalsProps> = ({ children }) => {
             overlay: {
               zIndex: openedModals?.[child?.props?.name]
                 ? 1000 + Object.keys(openedModals).length + index
-                : 'unset',
+                : "unset",
               ...child?.props?.style?.overlay,
             },
           },
-        })
+        }),
       )}
     </>
   );

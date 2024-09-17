@@ -1,5 +1,5 @@
-import { createContext } from 'react';
-import { ModalContextType } from './types';
+import { createContext } from "react";
+import { ModalContextType } from "./types";
 
 const initialContextState: ModalContextType = {
   modals: [],

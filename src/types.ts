@@ -1,7 +1,7 @@
-import ReactModal from 'react-modal';
-import { ReactNode } from 'react';
+import ReactModal from "react-modal";
+import { ReactNode } from "react";
 
-export interface ReactModalProps extends Omit<ReactModal.Props, 'appElement'> {
+export interface ReactModalProps extends Omit<ReactModal.Props, "appElement"> {
   name: string;
   appElement?: string | HTMLElement;
 }
@@ -15,6 +15,9 @@ export interface ModalContextType {
   openedModals: Record<string, boolean>;
   modalProps: Record<string, Record<string, any>>;
   setModals: (modals: string[]) => void;
-  openModal: (name: string, props: Record<string, Record<string, any>>) => void;
+  openModal: (
+    name: string,
+    props?: Record<string, Record<string, any>>,
+  ) => void;
   closeModal: (name: string) => void;
 }
