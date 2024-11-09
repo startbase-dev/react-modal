@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
-import { ModalProvider } from "@/components/Modal/Modal";
-import Modals from "@/components/modals/Modals";
+import { ModalProvider } from "../components/Modal/Modal";
+import Modals from "../components/modals/Modals";
 import Link from "next/link";
 import React from "react";
 

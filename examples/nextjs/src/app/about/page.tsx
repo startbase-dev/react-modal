@@ -1,6 +1,6 @@
 "use client";
 
-import { useModal } from "@/components/Modal/Modal";
+import { useModal } from "../../components/Modal/Modal";
 import styles from "./page.module.css";
 import React from "react";
 
