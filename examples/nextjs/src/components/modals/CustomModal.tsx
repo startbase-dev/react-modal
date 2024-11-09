@@ -1,6 +1,6 @@
 "use client";
 
-import { useModal, Modal } from "@/components/Modal/Modal";
+import { useModal, Modal } from "../Modal/Modal";
 import React, { useState, CSSProperties } from "react";
 
 export default function CustomModal() {

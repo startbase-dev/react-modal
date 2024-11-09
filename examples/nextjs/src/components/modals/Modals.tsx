@@ -1,6 +1,6 @@
 "use client";
 
-import { useModal, GlobalModals, Modal } from "@/components/Modal/Modal";
+import { useModal, GlobalModals, Modal } from "../Modal/Modal";
 import React, { CSSProperties } from "react";
 
 export default function Modals() {
