@@ -1,7 +1,7 @@
 {
   "name": "@start-base/react-modal",
   "author": "Start-Base",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Accessible modal dialog component and global modals provider for React.JS. This package is a enhanced version of react-modal.",
   "license": "MIT",
   "repository": {
@@ -52,8 +52,8 @@
     "@babel/preset-env": "7.26.0",
     "@babel/preset-react": "7.25.9",
     "@types/react": "18.3.12",
-    "@typescript-eslint/eslint-plugin": "8.13.0",
-    "@typescript-eslint/parser": "8.13.0",
+    "@typescript-eslint/eslint-plugin": "8.15.0",
+    "@typescript-eslint/parser": "8.15.0",
     "autoprefixer": "10.4.20",
     "babel-loader": "9.2.1",
     "eslint": "8.57.1",
@@ -61,7 +61,7 @@
     "eslint-plugin-compat": "6.0.1",
     "eslint-plugin-prettier": "5.2.1",
     "eslint-plugin-react": "7.37.2",
-    "husky": "9.1.6",
+    "husky": "9.1.7",
     "prettier": "3.3.3",
     "terser": "5.36.0",
     "tsup": "8.3.5",
