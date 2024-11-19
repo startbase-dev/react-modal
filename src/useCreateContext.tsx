@@ -6,10 +6,7 @@ function useCreateContext() {
   const [modalProps, setModalProps] = useState({});
 
   const openModal = useCallback(
-    (
-      modalName: string,
-      props: Record<string, any | string | boolean | object | unknown | null>,
-    ) => {
+    (modalName: string, props: Record<string, unknown>) => {
       setOpenedModals((prevState) => {
         return {
           ...prevState,

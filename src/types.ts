@@ -15,12 +15,6 @@ export interface ModalContextType {
   openedModals: Record<string, boolean>;
   modalProps: Record<string, Record<string, any>>;
   setModals: (modals: string[]) => void;
-  openModal: (
-    name: string,
-    props?: Record<
-      string,
-      Record<string, any | string | boolean | object | unknown | null>
-    >,
-  ) => void;
+  openModal: (name: string, props?: Record<string, unknown>) => void;
   closeModal: (name: string) => void;
 }
