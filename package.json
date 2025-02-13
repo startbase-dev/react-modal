@@ -37,8 +37,8 @@
     "build:lib": "tsup --out-dir ./dist/lib --no-splitting --treeshake --minify terser"
   },
   "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0",
     "react-modal": "^3.0.0"
   },
   "dependencies": {
@@ -51,7 +51,7 @@
     "@babel/core": "7.26.0",
     "@babel/preset-env": "7.26.0",
     "@babel/preset-react": "7.25.9",
-    "@types/react": "18.3.12",
+    "@types/react": "^18.3.18",
     "@typescript-eslint/eslint-plugin": "8.15.0",
     "@typescript-eslint/parser": "8.15.0",
     "autoprefixer": "10.4.20",
